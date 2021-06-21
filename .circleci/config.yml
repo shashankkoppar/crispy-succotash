@@ -41,7 +41,7 @@ workflows:
           filters:
             branches:
               only: master
-      - build-push-image-and-dag:
+      - deploy-crispy-latest:
           requires:
             - build-publish-latest
           filters:
