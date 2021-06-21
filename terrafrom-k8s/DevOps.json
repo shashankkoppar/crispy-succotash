@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "crispy-317519",
+  "private_key_id": "5a67e912309b7aa48a16349fba3166ee7ca08af9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDBYE0qrbA0J2+X\nX84x9OjAkWsdnRCWNs67eLLcXNdR06vmVUvqPYQCNVYGTNrmWoYt8V4dxOj52AUG\nBPJNyRJi7Q5eQXfGAXA7l4hT5ws9DMVDT931AlBnSsfrXwVF3+DfP5YmP8FgEJ8C\nn20zx6fmGC3hIENAKKk0kQhC+MyLKnZEGCxBWbkgBEL7RyufB0FS3MT62t2LElLt\nscRB+tHLN252f8fLEjahNtF6O4d5eUWb7B6jlrz7urLodrWXqmF7bRyWHPyRV789\nBJWITVPXuAXcJE/EiedZSzV9uLRoLFwQ8OPEhNgiNwa71VvPcGW4NkOUYn+w/6fl\nQ1SXcSmfAgMBAAECggEAQS3+lKYawFmSiYlnbPtKAK6DVmX8k0VCBXq3fwNkKFaa\nmHajsf6uIjhsGI+LMR3OIGo8+PfIN36SoubD7Wga5HFW6HpUrs8JT2zSLMWxyhAl\n5XxkKhNvmoFgRXuvwU+m8ljyeU4AFitEDZRDMLLZavs3a6x+Pn/2GJvSFxDZkQZW\nDSqt3jrDSttuM2//BmCP/fguFPdce3ifpM2GsN2piCNpTiv+gmHp1fHvrvsp04Nr\np5xm9T8TwxjaBaUMsU8ocJ4GVqI0QgiW7AlM3jFFoiLKsd/IF0kEy/O8OwJeOEwy\ntMgYs/YWZumG16T2shJn7j/ieeNBX7XT6KOJrexKUQKBgQD4yH3uqE4+DMkNiaVJ\n8+nl02ta2jy7q6jsR6exekwmaLqfhvyhSDqtK7/pp8JHDve2lJNbrQ4yRIwNn18L\ni7ZIeXFduR/mTG2Q4ky44DLE83FLJfZOTeKdYY/0BKWcaL/cbJP90cM68mqboL7B\nXGf/e+GxNpgUXVawVTpSH/bpcwKBgQDG/FjpzJXP4zLCfpwU6RLyPaOSKmHOfftu\nmvJeRBL0pwOAaeZYD6SQ8mtSJtrGYGLVnd0IA5r05DuirxAUxtylAUJtVsJSFrAt\nynTSKbaGOuMfzlNYgeHEDsOe8NngXPEcZ/OzHlJVKU88wnVN52V1aNt1cWb+nHiZ\nYqjFcg3kJQKBgQDmXlEug68gChrKbGEgH7rA1Iseb+O5LHWZhaik0UhecLAPNKIO\nfqHG5TIqnOtrfVKoQOBLDe6NYagGnUMXn+HFLp9pWBlP2gnDFapRr1mTwpFwMtDn\nJXvonAT+wqbQNLck124apPiRRxSs06aPyo+Kph4RSSp+AQha9DCzB2JOPQKBgEmk\n1UdaR0vUO1IOR7fZdwCeXW5YLzCcIbUStYa7zQQs17fr+as3xuE6Rwv1g1yOCaYj\nsc0ogG4IFiYkgmAeJUUQTURoKqz05qlb15Z8h6fwHWUFGIWWNDc6e53UZ96Ip1er\nBV+SZkhMbJ4BHicB7+PfNfGmUccDpAKop+vDRW7dAoGBAMF42roAnKJMgEKLSfkP\nn/HzZMdtPcqNaruAnbbVFjRtZG3L964o4TeGetteL+q8GHxilUPeJMkJCx/G/p4L\nCfYjHClD86t3kK7lDes69TDUVbcuOMp4fWZTnMrokvdTgOD36IhLs4GOHo5+te39\n0anV3Y40WxDjGRU1wFJel8RB\n-----END PRIVATE KEY-----\n",
+  "client_email": "crispy@crispy-317519.iam.gserviceaccount.com",
+  "client_id": "110873136283069631101",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/crispy%40crispy-317519.iam.gserviceaccount.com"
+}
