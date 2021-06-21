@@ -29,9 +29,9 @@ jobs:
           command: |
             echo $GCLOUD_SERVICE_ACCOUNT_KEY > $PWD/gcloud.json
             gcloud auth activate-service-account --key-file=$PWD/gcloud.json
-            gcloud components install kubectl
             gcloud container clusters get-credentials ${CLUSTER_NAME} --region ${CLUSTER_REGION} --project ${GKE_PROJECT}
-            kubectl get nodes
+            kubectl apply -f deploy/
+            kubectl get pods -n default
 
 workflows:
   version: 2

@@ -23,6 +23,6 @@ spec:
         - env:
             - name: APP_TYPE
               value: worker
-          image: shashankkoppar/samplecrispynew
+          image: shashankkoppar/crispy-succotash
           name: worker
       restartPolicy: Always
