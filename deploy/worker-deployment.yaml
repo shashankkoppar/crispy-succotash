@@ -22,7 +22,7 @@ spec:
       containers:
         - env:
             - name: APP_TYPE
-              value: app
+              value: worker
           image: shashankkoppar/samplecrispynew
           name: worker
       restartPolicy: Always
