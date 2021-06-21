@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  build-publish-latest:
     environment:
       IMAGE_NAME: shashankkoppar/crispy-succotash
     docker:
@@ -14,25 +14,11 @@ jobs:
             docker build -t $IMAGE_NAME:latest .
             echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             docker push $IMAGE_NAME:latest
-
-  publish-latest:
-    environment:
-      IMAGE_NAME: shashankkoppar/crispy-succotash
-    docker:
-      - image: circleci/buildpack-deps:stretch
-    steps:
-      - setup_remote_docker
 workflows:
   version: 2
   build-master:
     jobs:
-      - build:
-          filters:
-            branches:
-              only: master
-      - publish-latest:
-          requires:
-            - build
+      - build-publish-latest:
           filters:
             branches:
               only: master
