@@ -40,6 +40,8 @@ spec:
               value: localhost
             - name: DJANGO_SETTINGS_MODULE
               value: crispy.settings.docker
+            - name: LOADBALANCER_IP
+              value: '35.205.189.209'
           image: shashankkoppar/crispy-succotash
           name: app
           ports:
@@ -52,13 +54,19 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app: app
   name: app
+  namespace: default
 spec:
+  externalTrafficPolicy: Cluster
+  loadBalancerSourceRanges:
+  - 84.241.199.114/32  
   ports:
-    - name: "8000"
-      port: 8000
-      targetPort: 8000
+  - name: "8000"
+    nodePort: 30205
+    port: 8000
+    protocol: TCP
+    targetPort: 8000
   selector:
     app: app
+  sessionAffinity: None
+  type: LoadBalancer

@@ -12,6 +12,9 @@ cd /code/crispy/settings/
 cat docker.py | mo > temp
 mv temp docker.py
 
+cat base.py | mo > temp
+mv temp base.py
+
 cd /code/
 
 if [ -n "${APP_TYPE+set}" ]; then

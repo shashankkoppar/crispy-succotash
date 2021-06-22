@@ -38,6 +38,8 @@ spec:
               value: worker
             - name: DB_HOST
               value: localhost
+            - name: LOADBALANCER_IP
+              value: '35.205.189.209'            
           image: shashankkoppar/crispy-succotash
           name: worker
       restartPolicy: Always

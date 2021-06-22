@@ -27,8 +27,7 @@ SECRET_KEY = 'p!767m2g!4-fx9skjwqel38byo8p#l51fz3zy4xq^%3#bn@33-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS=["{{LOADBALANCER_IP}}", "localhost", "127.0.0.1"]
 
 # Application definition
 
