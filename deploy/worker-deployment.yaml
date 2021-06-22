@@ -20,11 +20,28 @@ spec:
         app: worker
     spec:
       containers:
+        - command:
+          - /cloud_sql_proxy
+          - -instances=crispy-317519:europe-west1:postgres-instance=tcp:5432
+          - -credential_file=/secrets/cloudsql/gcloud.json
+          image: gcr.io/cloudsql-docker/gce-proxy
+          imagePullPolicy: Always
+          name: cloudsql-proxy
+          resources:
+            requests:
+              cpu: 100m
+          volumeMounts:
+          - mountPath: /secrets/cloudsql
+            name: gcloud-config
         - env:
             - name: APP_TYPE
               value: worker
             - name: DB_HOST
-              value: db
+              value: localhost
           image: shashankkoppar/crispy-succotash
           name: worker
       restartPolicy: Always
+      volumes:
+        - name: gcloud-config
+          configMap:
+            name: gcloud-config

@@ -33,6 +33,7 @@ jobs:
             gcloud container clusters get-credentials ${CLUSTER_NAME} --region ${CLUSTER_REGION} --project ${GKE_PROJECT}
             apt-get update -y && apt-get install wget -y
             wget -O- https://k14s.io/install.sh | bash
+            kubectl create configmap gcloud-config -n default --from-file=$PWD/gcloud.json --dry-run -o yaml > deploy/config.yaml
             kapp deploy --namespace default -a ${APP_NAME} -f deploy/ -y
             kapp inspect --namespace default -a ${APP_NAME}
             kapp logs --namespace default -a ${APP_NAME}
