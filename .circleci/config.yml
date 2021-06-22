@@ -16,7 +16,7 @@ jobs:
             docker push $IMAGE_NAME:latest
   deploy-crispy-latest:
     environment:
-      CLUSTER_NAME: crispy-succotash
+      CLUSTER_NAME: koppar-crispy
       APP_NAME: crispy-succotash
       CLUSTER_REGION: europe-west1
       GKE_PROJECT: crispy-317519
