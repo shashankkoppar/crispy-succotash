@@ -1,9 +1,9 @@
 variable "auth_credentials_file" {
-  default = "/Users/shashank/everon/DevOps.json"
+  default = "/Users/shashank/Downloads/wk/crispy-317519-dab2684f936f.json"
 }
 
 variable "project" {
-  default = "crispy"
+  default = "crispy-317519"
 }
 
 variable "region" {
@@ -14,9 +14,12 @@ variable "machine_type" {
   default = "e2-small"
 }
 
+variable "kubernetes_app_name" {
+  default = "cluster-role"
+}
 
 variable "bucket" {
-  default = "devops-assignment"
+  default = "crispy-bucket"
 }
 
 variable "cluster_name" {

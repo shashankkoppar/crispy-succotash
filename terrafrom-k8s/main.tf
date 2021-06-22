@@ -8,14 +8,6 @@ resource "google_container_cluster" "koppar-crispy" {
   remove_default_node_pool = true
   initial_node_count       = 1
 
-  master_auth {
-    username = "koppar"
-    password = "koppar-crispy-assignment"
-
-    client_certificate_config {
-      issue_client_certificate = true
-    }
-  }
 }
 
 resource "google_container_node_pool" "node_pool" {
@@ -39,4 +31,29 @@ resource "google_container_node_pool" "node_pool" {
     ]
   }
   depends_on = [google_container_cluster.koppar-crispy]
+}
+
+resource "google_sql_database_instance" "postgres" {
+  name             = "postgres-instance"
+  database_version = "POSTGRES_11"
+  region           = "europe-west1"
+
+  settings {
+    # Second-generation instance tiers are based on the machine
+    # type. See argument reference below.
+    tier = "db-f1-micro"
+  }
+}
+
+resource "google_sql_user" "users" {
+  name       = "postgres"
+  instance   = "postgres-instance"
+  password   = "password"
+  depends_on = [google_sql_database_instance.postgres]
+}
+
+resource "google_sql_database" "database" {
+  name       = "crispy"
+  instance   = "postgres-instance"
+  depends_on = [google_sql_database_instance.postgres]
 }
