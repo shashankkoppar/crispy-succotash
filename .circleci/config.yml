@@ -17,6 +17,7 @@ jobs:
   deploy-crispy-latest:
     environment:
       CLUSTER_NAME: crispy-succotash
+      APP_NAME: crispy-succotash
       CLUSTER_REGION: europe-west1
       GKE_PROJECT: crispy-317519
     docker:
@@ -30,8 +31,10 @@ jobs:
             echo $GCLOUD_SERVICE_ACCOUNT_KEY > $PWD/gcloud.json
             gcloud auth activate-service-account --key-file=$PWD/gcloud.json
             gcloud container clusters get-credentials ${CLUSTER_NAME} --region ${CLUSTER_REGION} --project ${GKE_PROJECT}
-            kubectl apply -f deploy/
-            kubectl get pods -n default
+            wget -O- https://k14s.io/install.sh | bash
+            kapp deploy --namespace default -a ${APP_NAME} -f deploy/ -y
+            kapp inspect --namespace default -a ${APP_NAME}
+            kapp logs --namespace default -a ${APP_NAME}
 
 workflows:
   version: 2

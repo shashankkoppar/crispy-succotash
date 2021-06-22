@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   labels:
-    io.kompose.service: postgres-volume
+    app: postgres-volume
   name: postgres-volume
 spec:
   accessModes:
@@ -19,11 +19,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: db
+      app: db
   template:
     metadata:
       labels:
-        io.kompose.service: db
+        app: db
     spec:
       containers:
         - name: postgres
@@ -51,7 +51,7 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    io.kompose.service: db
+    app: db
   name: db
 spec:
   ports:
@@ -59,4 +59,4 @@ spec:
       port: 5432
       targetPort: 5432
   selector:
-    io.kompose.service: db
+    app: db

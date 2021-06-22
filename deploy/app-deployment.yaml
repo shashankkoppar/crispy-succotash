@@ -2,13 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    io.kompose.service: app
+    app: app
   name: app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: app
+      app: app
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -17,7 +17,7 @@ spec:
   template:
     metadata:
       labels:
-        io.kompose.service: app
+        app: app
     spec:
       containers:
         - env:
@@ -34,7 +34,7 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    io.kompose.service: app
+    app: app
   name: app
 spec:
   ports:
@@ -42,4 +42,4 @@ spec:
       port: 8000
       targetPort: 8000
   selector:
-    io.kompose.service: app
+    app: app
