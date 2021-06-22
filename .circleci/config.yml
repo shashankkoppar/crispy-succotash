@@ -28,16 +28,23 @@ jobs:
       - run:
           name: Deploy Docker Image to Kubernetes Cluster
           command: |
+            echo "Setup gcloud auth and kubectl"
             echo $GCLOUD_SERVICE_ACCOUNT_KEY > $PWD/gcloud.json
             gcloud auth activate-service-account --key-file=$PWD/gcloud.json
             gcloud container clusters get-credentials ${CLUSTER_NAME} --region ${CLUSTER_REGION} --project ${GKE_PROJECT}
+
+            echo "install kapp tool"
             apt-get update -y && apt-get install wget -y
             wget -O- https://k14s.io/install.sh | bash
+
+            echo "Create cloud.json configmap"
             kubectl create configmap gcloud-config -n default --from-file=$PWD/gcloud.json --dry-run -o yaml > deploy/config.yaml
+
+            echo "Deploy app and worker"
             kapp deploy --namespace default -a ${APP_NAME} -f deploy/ -y
             kapp inspect --namespace default -a ${APP_NAME}
             kapp logs --namespace default -a ${APP_NAME}
-
+            
 workflows:
   version: 2
   build-master:
