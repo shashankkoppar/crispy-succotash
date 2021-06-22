@@ -44,11 +44,11 @@ workflows:
       - build-publish-latest:
           filters:
             branches:
-              only: master
+              only: trycloudsql
       - deploy-crispy-latest:
           requires:
             - build-publish-latest
           filters:
             branches:
               only:
-                - master
+                - trycloudsql

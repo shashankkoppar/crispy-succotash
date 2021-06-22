@@ -23,6 +23,8 @@ spec:
         - env:
             - name: APP_TYPE
               value: worker
+            - name: DB_HOST
+              value: db
           image: shashankkoppar/crispy-succotash
           name: worker
       restartPolicy: Always

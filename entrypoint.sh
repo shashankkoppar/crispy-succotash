@@ -1,12 +1,17 @@
 #!/bin/bash
 
-until nc -zv db 5432
+until nc -zv ${DB_HOST} 5432
 do
   echo "Waiting for postgres to be up!"
   sleep 10
 done
 
 # change directory to source code
+cd /code/crispy/settings/
+
+cat docker.py | mo > temp
+mv temp docker.py
+
 cd /code/
 
 if [ -n "${APP_TYPE+set}" ]; then
