@@ -26,7 +26,7 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: Build and Publish Docker Image to Docker Hub
+          name: Deploy Docker Image to Kubernetes Cluster
           command: |
             echo $GCLOUD_SERVICE_ACCOUNT_KEY > $PWD/gcloud.json
             gcloud auth activate-service-account --key-file=$PWD/gcloud.json
@@ -45,11 +45,11 @@ workflows:
       - build-publish-latest:
           filters:
             branches:
-              only: trycloudsql
+              only: master
       - deploy-crispy-latest:
           requires:
             - build-publish-latest
           filters:
             branches:
               only:
-                - trycloudsql
+                - master
