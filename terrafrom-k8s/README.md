@@ -25,8 +25,3 @@
  list all the variables and what each one does in vars.tf
 
  Also please update location of gcloud details in  backend gcs and google provider in provider.tf
-
-
-# Note:
-
-Due to domain name is not registered properly in registrar, acme_certificate stage will fail.
