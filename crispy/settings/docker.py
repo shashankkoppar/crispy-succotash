@@ -7,7 +7,7 @@ DATABASES = {
         'NAME': 'crispy',
         'USER': 'postgres',
         'PASSWORD': 'password',
-        'HOST': 'db',
+        'HOST': '{{DB_HOST}}',
         'PORT': 5432,
     }
 }
