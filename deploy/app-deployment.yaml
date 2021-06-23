@@ -41,7 +41,7 @@ spec:
             - name: DJANGO_SETTINGS_MODULE
               value: crispy.settings.docker
             - name: LOADBALANCER_IP
-              value: '35.205.189.209'
+              value: '35.205.189.209' #Update with loadbalancer ip recieved after deploying service first time and rerun 
           image: shashankkoppar/crispy-succotash
           name: app
           ports:
@@ -59,7 +59,7 @@ metadata:
 spec:
   externalTrafficPolicy: Cluster
   loadBalancerSourceRanges:
-  - 84.241.199.114/32  
+  - 84.241.199.114/32  #pass public ip of pc to access
   ports:
   - name: "8000"
     nodePort: 30205

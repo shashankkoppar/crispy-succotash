@@ -1,0 +1,49 @@
+apiVersion: cert-manager.io/v1alpha2  #Sample files required for creating a secure https endpoint
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+  namespace: default
+spec:
+  acme:
+   solvers:
+   - http01:
+       ingress:
+         class:  nginx
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    server: https://acme-v02.api.letsencrypt.org/directory
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: crispy-secret
+  namespace: default
+spec:
+  secretName: istio-ingressgateway-certs
+  issuerRef:
+    group: cert-manager.io
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - 'crispy.succotosh.com'
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: crispy-succotosh
+  namespace: default
+spec:
+  rules:
+  - host: crispy.succotosh.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: app
+            port:
+              number: 8000
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - crispy.succotosh.com
+    secretName: crispy-secret
