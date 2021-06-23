@@ -19,7 +19,7 @@ metadata:
   name: crispy-secret
   namespace: default
 spec:
-  secretName: istio-ingressgateway-certs
+  secretName: crispy-secret
   issuerRef:
     group: cert-manager.io
     name: letsencrypt-prod
