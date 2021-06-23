@@ -10,6 +10,14 @@ resource "google_container_cluster" "koppar-crispy" {
 
 }
 
+module "cert_manager" {
+  source = "github.com/sculley/terraform-kubernetes-cert-manager"
+
+  replica_count = 2
+  depends_on    = [google_container_cluster.koppar-crispy]
+}
+
+
 resource "google_container_node_pool" "node_pool" {
   name       = "koppar-crispy-node-pool"
   location   = var.region
